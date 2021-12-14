@@ -1,11 +1,20 @@
-{% block content %}
+{% load static %}
+<html>
+<head>
+    <title>{{ name }} Hotels</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/hotelManager.css' %}">
+</head>
+<body>
 <h1>{{ name }} ({{ nb_hotels}} hotels)</h1>
 <ul>
 {% for hotel in list_hotels %}
-    <li>{{ hotel.name }}</li>
+    <h3><li class="puc">{{ hotel.name }}</li></h3>
 {% endfor %}
 </ul>
-{% endblock %}
+</body>
+</html>
 
 
 
