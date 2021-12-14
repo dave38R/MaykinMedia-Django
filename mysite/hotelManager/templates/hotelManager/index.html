@@ -1,7 +1,13 @@
+{% load static %}
+
 <html>
 
 <head>
     <title>Cities</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/hotelManager.css' %}">
+
 </head>
 <h1>The cities we have :</h1>
 {% for city in list_cities %}
