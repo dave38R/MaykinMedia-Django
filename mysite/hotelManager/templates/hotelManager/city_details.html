@@ -1,0 +1,12 @@
+{% block content %}
+<h1>{{ name }} ({{ nb_hotels}} hotels)</h1>
+<ul>
+{% for hotel in list_hotels %}
+    <li>{{ hotel.name }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
+
+
+
+
