@@ -1,11 +1,9 @@
 from django.urls import path
-
 from . import views
 
 urlpatterns = [
-    path('', views.new, name='new'),
-
     path('', views.index, name='index'),
+    path('city/<str:name>/', views.city_details, name='city_details'),
 ]
 
 
