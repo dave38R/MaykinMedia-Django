@@ -12,7 +12,7 @@ class City(models.Model):
 
 class Hotel(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
-    id_hotel = models.CharField(max_length=3)
+    id_hotel = models.CharField(max_length=6)
     name = models.CharField(max_length=200)
 
     def __str__(self):
