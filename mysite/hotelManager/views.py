@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import City, Hotel
 from .get_data import cities, hotels, funcity
+from .forms import CreateHotel, CreateCity
 
 
 # Create your views here.
@@ -31,7 +32,33 @@ def index(request):
 
 
 def city_details(request, name):
-    list_hotels = Hotel.objects.filter(city__name=name)
+    list_hotels = Hotel.objects.filter(city__name=name)  # It's city__name and not city.name for some reason
     nb_hotels = len(list_hotels)
     context = {"list_hotels": list_hotels, "name": name, "nb_hotels": nb_hotels}
     return render(request, 'hotelManager/city_details.html', context)
+
+
+def add_city(request):
+    if request.method == "POST":
+        form = CreateHotel(request.POST)
+        if form.is_valid():
+            hotel = form.save(commit=False)
+            hotel.save()
+            return redirect("index")
+    else:
+        form = CreateCity()
+    return render(request, 'hotelManager/index.html', {'form': form})
+
+
+def add_hotel(request, name):
+    if request.method == "POST":
+        form = CreateHotel(request.POST)
+        if form.is_valid():
+            hotel = form.save(commit=False)
+            hotel.city = City.objects.filter(name=name)[0]
+            hotel.save()
+            return redirect("city_details", name=name)
+
+    else:
+        form = CreateHotel()
+    return render(request, 'hotelManager/add_hotel.html', {'form': form})
