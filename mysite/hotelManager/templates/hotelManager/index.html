@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static 'css/hotelManager.css' %}">
-
 </head>
-<h3><a href=""</h3>
+
+<h3><a href="/admin">Administration</a></h3>
+<!--<h3><a href="add_city">Add City</a></h3>-->
+
 <h1>The cities we have :</h1>
 {% for city in list_cities %}
-<h2><a class="link" href="{% url 'city_details' name=city.name %}"> {{ city.name }} </a></h2>
+<h2><a href="{% url 'city_details' name=city.name %}"> {{ city.name }} </a></h2>
 {% endfor %}
 
 </html>
