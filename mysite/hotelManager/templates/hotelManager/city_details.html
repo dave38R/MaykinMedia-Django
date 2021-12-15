@@ -8,14 +8,14 @@
 </head>
 <body>
 <h1>{{ name }} ({{ nb_hotels}} hotels)</h1>
-<ul>
-{% for hotel in list_hotels %}
-    <h3><li class="puc">{{ hotel.name }}</li></h3>
-{% endfor %}
-</ul>
+<div class="dif">
+    <ul>
+    {% for hotel in list_hotels %}
+        <h3><li class="puc">{{ hotel.name }}</li></h3>
+    {% endfor %}
+    </ul>
+
+
+
 </body>
 </html>
-
-
-
-
